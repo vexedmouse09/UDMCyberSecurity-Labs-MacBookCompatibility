@@ -1,16 +1,52 @@
-// Add your custom styles here
+// Custom styles
 .site-title {
-  color: #bd93f9;
+  color: $grey-lt-300; // Pink title
 }
 
-a:hover {
-  color: #ff79c6;
-}
-
-.site-header {
-  border-bottom: 1px solid #44475a;
+// Improve code blocks
+pre.highlight {
+  border: 1px solid $grey-dk-100;
+  border-radius: 4px;
 }
 
 code {
-  background-color: #44475a;
+  color: $yellow-000; // Yellow code text
+}
+
+// Tables
+table {
+  background-color: $grey-dk-000;
+  border: 1px solid $grey-dk-100;
+}
+
+// Make images stand out better
+img {
+  border: 1px solid $grey-dk-100;
+  border-radius: 4px;
+  margin: 1em 0;
+}
+
+// Custom callouts
+.warning {
+  background-color: rgba($red-000, 0.2);
+  border-left: 4px solid $red-000;
+  border-radius: 4px;
+  padding: 0.8rem;
+  margin: 1rem 0;
+}
+
+.note {
+  background-color: rgba($blue-000, 0.2);
+  border-left: 4px solid $blue-000;
+  border-radius: 4px;
+  padding: 0.8rem;
+  margin: 1rem 0;
+}
+
+.tip {
+  background-color: rgba($green-000, 0.2);
+  border-left: 4px solid $green-000;
+  border-radius: 4px;
+  padding: 0.8rem;
+  margin: 1rem 0;
 }
