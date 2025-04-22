@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: home
 title: Home
+nav_order: 1
 ---
 
 # UTM VM Installation Guides for M1/M2 Macs
@@ -15,7 +16,6 @@ This documentation provides detailed installation guides for security-focused vi
 - [CyberOps Workstation](docs/cyberops.html) - Cisco's security lab environment
 - [Greenbone Vulnerability Scanner](docs/greenbone.html) - Network vulnerability scanning
 
-
 ## Prerequisites
 
 Before beginning any installation:
@@ -25,11 +25,5 @@ Before beginning any installation:
 3. Have an internet connection to download VM images
 4. Enable Rosetta 2 for x86 emulation
 
-## Lab Setup Overview
-
-These guides are designed for cybersecurity lab environments where VMs need to communicate with each other. Each guide includes:
-
-- Detailed step-by-step installation instructions
-- Network configuration for inter-VM communication
-- Performance optimization tips
-- Troubleshooting common issues
+{: .warning }
+> **Important**: Some of these VMs contain intentional vulnerabilities. Never expose them to the internet or untrusted networks.
