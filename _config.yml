@@ -4,8 +4,10 @@ description: Installation guides for security VMs on Apple Silicon Macs
 url: https://vexedmouse09.github.io
 baseurl: "/UDMCyberSecurity-Labs-MacBookCompatibility"
 
-# Theme settings
-remote_theme: "dracula/gh-pages"
+# Build settings
+markdown: kramdown
+remote_theme: just-the-docs/just-the-docs@v0.4.0
+color_scheme: dracula
 
 # Just the Docs settings
 search_enabled: true
@@ -13,3 +15,10 @@ heading_anchors: true
 aux_links:
   "View on GitHub":
     - "https://github.com/vexedmouse09/UDMCyberSecurity-Labs-MacBookCompatibility"
+
+# Back to top link
+back_to_top: true
+back_to_top_text: "Back to top"
+
+# Footer content
+footer_content: "Copyright &copy; 2025. Distributed under the MIT license."
