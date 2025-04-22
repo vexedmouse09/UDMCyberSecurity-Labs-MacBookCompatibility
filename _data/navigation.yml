@@ -1,0 +1,12 @@
+- name: Home
+  link: /
+- name: Kali Linux
+  link: /docs/kali-linux.html
+- name: Metasploitable 2
+  link: /docs/metasploitable.html
+- name: De-ICE
+  link: /docs/deice.html
+- name: CyberOps
+  link: /docs/cyberops.html
+- name: Greenbone
+  link: /docs/greenbone.html
