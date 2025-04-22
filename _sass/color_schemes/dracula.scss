@@ -1,0 +1,22 @@
+// Import the dark mode variables
+@import "./color_schemes/dark";
+
+// Dracula theme color variables
+$purple-000: #bd93f9;
+$purple-100: #a37ddb;
+$purple-200: #8a69c2;
+$purple-300: #6c4ba1;
+
+// Override the default dark theme variables
+$link-color: $purple-000;
+$btn-primary-color: $purple-300;
+$base-button-color: $purple-100;
+
+$body-background-color: #282a36;
+$sidebar-color: #1e1f29;
+$border-color: #44475a;
+$body-text-color: #f8f8f2;
+$body-heading-color: #ff79c6;
+$nav-child-link-color: $purple-000;
+$search-result-preview-color: #f1fa8c;
+$search-background-color: #44475a;

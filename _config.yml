@@ -5,17 +5,11 @@ url: https://vexedmouse09.github.io
 baseurl: "/UDMCyberSecurity-Labs-MacBookCompatibility"
 
 # Theme settings
-theme: jekyll-theme-minimal
-remote_theme: pages-themes/minimal@v0.2.0
-plugins:
-  - jekyll-remote-theme
-  - jekyll-seo-tag
+remote_theme: "dracula/gh-pages"
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-
-# GitHub Pages settings
-github:
-  is_project_page: true
-  repository_url: https://github.com/vexedmouse09/UDMCyberSecurity-Labs-MacBookCompatibility
+# Just the Docs settings
+search_enabled: true
+heading_anchors: true
+aux_links:
+  "View on GitHub":
+    - "https://github.com/vexedmouse09/UDMCyberSecurity-Labs-MacBookCompatibility"
