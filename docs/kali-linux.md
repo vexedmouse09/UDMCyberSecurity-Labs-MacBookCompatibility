@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Kali Linux ARM64 Installation
+nav_order: 2
 ---
 
 # Kali Linux ARM64 Installation Guide for UTM
