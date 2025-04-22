@@ -51,6 +51,6 @@ Click Here: [Kali.org](https://www.kali.org/get-kali/#kali-installer-images/kali
 8. When Prompted for Shared Directory Information, You May Leave These Settings Unchanged
 9. At The VM Summary, Rename Your VM to `Kali Linux` and select `Save`
 ![UTM Summary ](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-7.png)
-10. After Naming Your VM, Click The VM Settings Icon (Highlighted in Red in the image Below)
+10. After Naming Your VM, Click The `VM Settings Icon` (Highlighted in Red in the image Below)
 ![UTM VM Settings ](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-8.png)
 
