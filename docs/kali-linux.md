@@ -4,6 +4,7 @@ title: Kali Linux ARM64 Installation
 ---
 
 # Kali Linux ARM64 Installation Guide for UTM
+
 This guide covers the installation of Kali Linux (ARM64) on Apple Silicon Macs using UTM.
 
 ## Prerequisites
@@ -18,4 +19,5 @@ This guide covers the installation of Kali Linux (ARM64) on Apple Silicon Macs u
 Download the latest Kali Linux ARM64 ISO from the official Kali Linux Website
 
 ![Kali Linux ARM64 Installer](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/KL-1.png)
+
 
