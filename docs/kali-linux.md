@@ -17,9 +17,13 @@ This guide covers the installation of Kali Linux (ARM64) on Apple Silicon Macs u
 
 ## Step 1: Download Kali Linux ARM64
 
-Download the latest Kali Linux ARM64 ISO from the official Kali Linux Website
+1. Download the latest Kali Linux ARM64 ISO from the official Kali Linux Website
 
-![Kali Linux ARM64 Installer](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali//KL-1.png)
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-1.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-1.png" alt="Kali Linux ARM64 Download Page" class="clickable-image">
+     </a>
+   </div>
 
 ### Kali.org Site Link
 
