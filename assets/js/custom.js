@@ -1,29 +1,28 @@
-// Custom JavaScript for collapsible sidebar
+// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Create and add sidebar toggle button
-  const sideBar = document.querySelector('.side-bar');
-  const main = document.querySelector('.main');
+  // Create sidebar toggle button
+  const button = document.createElement('button');
+  button.id = 'sidebar-button';
+  button.innerHTML = '◀';
+  button.setAttribute('aria-label', 'Toggle sidebar');
+  document.body.appendChild(button);
   
-  if (sideBar) {
-    const toggleButton = document.createElement('button');
-    toggleButton.className = 'sidebar-toggle-button';
-    toggleButton.innerHTML = '◀';
-    toggleButton.setAttribute('aria-label', 'Toggle sidebar');
-    sideBar.appendChild(toggleButton);
-    
-    // Toggle sidebar function
-    toggleButton.addEventListener('click', function() {
-      const isCollapsed = sideBar.classList.toggle('collapsed');
-      main.classList.toggle('expanded');
-      toggleButton.innerHTML = isCollapsed ? '▶' : '◀';
-      localStorage.setItem('sidebar-collapsed', isCollapsed);
-    });
-    
-    // Check saved state
-    if (localStorage.getItem('sidebar-collapsed') === 'true') {
-      sideBar.classList.add('collapsed');
-      main.classList.add('expanded');
-      toggleButton.innerHTML = '▶';
-    }
+  // Check localStorage for previous state
+  if (localStorage.getItem('sidebar-collapsed') === 'true') {
+    document.body.classList.add('sidebar-collapsed');
+    button.innerHTML = '▶';
   }
+  
+  // Add click event handler
+  button.addEventListener('click', function() {
+    document.body.classList.toggle('sidebar-collapsed');
+    
+    if (document.body.classList.contains('sidebar-collapsed')) {
+      button.innerHTML = '▶';
+      localStorage.setItem('sidebar-collapsed', 'true');
+    } else {
+      button.innerHTML = '◀';
+      localStorage.setItem('sidebar-collapsed', 'false');
+    }
+  });
 });

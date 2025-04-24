@@ -1,4 +1,4 @@
-// Custom styles for the cybersecurity labs site
+
 
 // Callout styling
 .warning {
@@ -69,45 +69,53 @@ table {
   }
 }
 
-// Sidebar toggle button
-.sidebar-toggle-button {
-  display: block;
-  position: absolute;
-  top: 0.6rem;
-  right: -12px;
+// Sidebar collapse button
+#sidebar-button {
+  position: fixed;
+  left: 246px;
+  top: 8px;
+  background: #44475a;
+  color: #f8f8f2;
+  border: none;
+  border-radius: 50%;
   width: 24px;
   height: 24px;
-  background-color: #44475a;
-  color: #f8f8f2;
-  border-radius: 50%;
-  border: 1px solid #6272a4;
-  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  text-align: center;
-  line-height: 24px;
+  z-index: 100;
+  transition: left 0.3s ease;
   font-size: 12px;
-  transition: transform 0.2s;
   
   &:hover {
     background-color: #6272a4;
   }
 }
 
-.side-bar.collapsed {
-  width: 0;
-  
-  .site-header, .site-nav, .site-footer {
-    display: none;
-  }
+.sidebar-collapsed #sidebar-button {
+  left: 20px;
 }
 
-.main.expanded {
-  margin-left: 0;
+.sidebar-collapsed .side-bar {
+  transform: translateX(-280px);
 }
 
-// Responsive improvements
+.sidebar-collapsed .main {
+  margin-left: 0 !important;
+}
+
+// Transitions
+.side-bar {
+  transition: transform 0.3s ease;
+}
+
+.main {
+  transition: margin-left 0.3s ease;
+}
+
 @media (max-width: 800px) {
-  .sidebar-toggle-button {
+  #sidebar-button {
     display: none;
   }
 }
