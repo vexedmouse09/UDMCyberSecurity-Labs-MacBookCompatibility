@@ -44,11 +44,11 @@ $code-background-color: $grey-dk-100;
 
 // Text colors
 $body-text-color: $grey-lt-000;
-$body-heading-color: $grey-lt-300;
+$body-heading-color: $purple-000;  // Changed from $grey-lt-300 to $purple-000
 $search-result-preview-color: $grey-lt-100;
 $nav-child-link-color: $grey-lt-000;
-$link-color: $purple-000;
-$btn-primary-color: $purple-100;
+$link-color: $purple-000;  // Ensure links are purple
+$btn-primary-color: $purple-100;  // Ensure buttons are purple
 $base-button-color: $grey-dk-100;
 
 // Border colors

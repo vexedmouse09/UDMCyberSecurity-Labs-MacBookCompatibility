@@ -25,29 +25,47 @@ This guide covers the installation of Kali Linux (ARM64) on Apple Silicon Macs u
      </a>
    </div>
 
-### Kali.org Site Link
+2. Visit the official site: [Kali.org Downloads](https://www.kali.org/get-kali/#kali-installer-images)
 
-Click Here: [Kali.org](https://www.kali.org/get-kali/#kali-installer-images/kali/)
 
+
+{: .warning }
 > **Important**: Make sure to select the "Apple Silicon (ARM64)" image when downloading.
+
 
 ## Step 2: Create Your New Virtual Machine in UTM
 
 1. Open UTM
 
-   ![UTM Dashboard](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-2.png)
+ <div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-2.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-2.png" alt="UTM Dashboard" class="clickable-image">
+     </a>
+   </div>
 
 2. Select `Create a New Virtual Machine`
 
-   ![UTM Start](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-3.png)
+   <div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-3.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-3.png" alt="UTM Create New VM Button" class="clickable-image">
+     </a>
+   </div>
 
 3. Select `Virtualize`
 
-   ![UTM Virtualize](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-4.png)
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-4.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-4.png" alt="UTM Virtualize Option" class="clickable-image">
+     </a>
+   </div>
 
 4. Select `Other`, then select `Boot ISO Image:` and choose the Kali Linux ISO file you downloaded earlier.
 
-   ![UTM Other Linux, BOOT ISO](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-5.png)
+  <div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-5.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-5.png" alt="UTM Other Linux, BOOT ISO Selection" class="clickable-image">
+     </a>
+   </div>
 
 5. Select `Continue`
 
@@ -55,73 +73,143 @@ Click Here: [Kali.org](https://www.kali.org/get-kali/#kali-installer-images/kali
 
 7. Change the Storage Size to `25-35 GiB` depending on your available storage
 
-   ![UTM STORAGE](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-6.png)
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-6.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-6.png" alt="UTM Storage Configuration" class="clickable-image">
+     </a>
+   </div>
 
 8. When prompted for Shared Directory Information, you may leave these settings unchanged or configure a shared folder if needed
 
 9. At the VM Summary, rename your VM to `Kali Linux` and select `Save`
 
-   ![UTM Summary](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-7.png)
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-7.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-7.png" alt="UTM VM Summary Screen" class="clickable-image">
+     </a>
+   </div>
 
 10. After naming your VM, click the VM Settings icon (highlighted in red in the image below)
 
-![UTM VM Settings](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-8.png)
+  <div class="image-container">
+      <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-8.png" target="_blank">
+        <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-8.png" alt="UTM VM Settings Button" class="clickable-image">
+      </a>
+    </div>
 
 ## Step 3: Modify VM Settings for Installation
 
 Due to a current bug in UTM, we need to install Kali Linux in console-only mode:
 
-1. In the VM settings, select "Display" under Devices and click "Remove"
-   ![REMOVE DISPLAY](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-9.png)
-2. Click "+ New..." and select "Serial" device
-   ![Add Serial Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-10.png)
-3. Click "Save" to apply these changes
-   ![Add Serial Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-11.png)
+1. In the VM settings, select `Display` under Devices and click `Remove`
+    <div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-9.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-9.png" alt="Remove Display Device" class="clickable-image">
+     </a>
+   </div>
+2. Click `+ New...` and select `Serial` device
+   <div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-10.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-10.png" alt="Add Serial Device" class="clickable-image">
+     </a>
+   </div>
+3. Click `Save` to apply these changes
+   <div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-11.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-11.png" alt="Save VM Settings" class="clickable-image">
+     </a>
+   </div>
 ## Step 4: Install Kali Linux
 
-1. Start the VM by clicking the play button
-   ![Add Serial Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-12.png)
+1. Start the VM by clicking the `Play` button
+   <div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-12.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-12.png" alt="Start VM Button" class="clickable-image">
+     </a>
+   </div>
 2. A console window should open showing the Kali Linux boot menu
+
 3. Use the arrow keys to select "Install" and press Enter
-   ![Add Serial Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-13.png)
+    <div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-13.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-13.png" alt="Kali Linux Boot Menu" class="clickable-image">
+     </a>
+   </div>
 4. Follow the installation prompts:
-   - Set your language, location, and keyboard layout
-   - Configure network (hostname, domain, etc.)
-   - Create a user account and password
-   - For partitioning, select "Guided - use entire disk"
-![Add Serial Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-14.png)
+   - Set your `language`, `location`, and `keyboard layout`
+   - Configure `network` (hostname, domain, etc.)
+   - Create a `user account` and `password`
+   - For partitioning, select `Guided - use entire disk`
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-14.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-14.png" alt="Partitioning Options" class="clickable-image">
+     </a>
+   </div>
    - Click the default settings for partitioning
    - When asked about software selection, ensure you select the following items for the best VM performance:
-        -- Xfce (default desktop environment, lightweight and fast)
-        -- Collection of tools: Top 10 AND default
+        -- `Xfce (default desktop environment, lightweight and fast)`
+        -- `Collection of tools: Top 10 AND default`
    - The software installation process may take a few minutes, depending on your internet speed.
-   - When you reach the "Finish the installation" step, DO NOT select "Continue" yet!
-![Add Serial Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-15.png)
+
+{: .warning }
+> **Important**: When you reach the `Finish the installation` step, DO NOT select `Continue` yet!
+
+ <div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-15.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-15.png" alt="Finish Installation Screen" class="clickable-image">
+     </a>
+   </div>
+
 5. Return to UTM's main window
-6. Select your VM on the left, then scroll down to "CD/DVD" on the right side
-7. Click "Clear" to remove the installation ISO (essential to boot from the installed system)
-![Add Serial Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-16.png)
+
+6. Select your VM on the left, then scroll down to `CD/DVD` on the right side
+
+7. Click `Clear` to remove the installation ISO (essential to boot from the installed system)
+
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-16.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-16.png" alt="Clear ISO Image" class="clickable-image">
+     </a>
+   </div>
+   
 Prior to selecting continue, open up the settings window we used to install the serial device, and do the following tasks: 
- - Remove the "Serial" device
- - Add a new "Display" device, using the "virtio-gpu-pci" option
+ - Remove the `Serial` device
+ - Add a new `Display` device, using the `virtio-gpu-pci` option
  - Save the settings
-![Add display Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-17.png)
-8. Now go back to the installation window and select "Continue" to complete the installation
+ 
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-17.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-17.png" alt="Add Display Device" class="clickable-image">
+     </a>
+   </div>
+
+8. Now go back to the installation window and select `Continue` to complete the installation
 
 
 ## Step 5: First Boot and Optimization
 
 1. Start the VM and log in with your username and password
-![Add display Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-18.png)
+
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-18.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-18.png" alt="Kali Linux Login Screen" class="clickable-image">
+     </a>
+   </div>
+   
 2. For better integration with your Mac, install SPICE tools from the terminal:
-   ```
+   ```bash
    sudo apt update
    sudo apt install spice-vdagent
    ```
-   ![Add display Device](/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-19.png)
+   
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-19.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-19.png" alt="Installing SPICE Tools" class="clickable-image">
+     </a>
+   </div>
 ## Step 6: Update and Upgrade
 Run the following command to ensure all packages on the Kali Linux system are up to date:
-```
+```bash
 sudo apt update && sudo apt upgrade -y
 ```
 ## Step 7: Enjoy Your Kali Linux Virtual Machine!

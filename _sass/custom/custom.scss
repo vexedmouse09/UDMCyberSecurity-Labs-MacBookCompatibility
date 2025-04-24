@@ -1,6 +1,33 @@
 // Custom styles
 .site-title {
-  color: $grey-lt-300; // Pink title
+  color: $purple-000; // Changed from $grey-lt-300 (pink) to purple
+  font-weight: 600;
+}
+
+// Add more purple accents
+.nav-list .nav-list-item .nav-list-link.active {
+  color: $purple-000;
+  background-color: rgba($purple-000, 0.1);
+}
+
+.nav-list .nav-list-item .nav-list-link:hover {
+  color: $purple-000;
+}
+
+// Make main headings more purple-focused
+h1, h2, h3 {
+  color: $purple-000;
+}
+
+// Make links stand out more with purple
+a:not(.btn) {
+  color: $purple-100;
+  text-decoration: none;
+  
+  &:hover {
+    color: $purple-000;
+    text-decoration: underline;
+  }
 }
 
 // Improve code blocks
@@ -49,4 +76,44 @@ img {
   border-radius: 4px;
   padding: 0.8rem;
   margin: 1rem 0;
+}
+
+// Image enhancements
+.image-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.clickable-image {
+  border: 2px solid $grey-dk-100;
+  border-radius: 5px;
+  max-width: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.clickable-image:hover {
+  border-color: $purple-000;
+  transform: scale(1.01);
+}
+
+// Extra purple accents
+.search-input {
+  border-color: $grey-dk-100;
+  
+  &:focus {
+    border-color: $purple-000;
+    box-shadow: 0 0 0 3px rgba($purple-000, 0.25);
+  }
+}
+
+.btn {
+  &:hover {
+    background-color: $purple-200;
+  }
+}
+
+// Add subtle purple glow to highlighted sections
+::selection {
+  background-color: rgba($purple-000, 0.3);
 }
