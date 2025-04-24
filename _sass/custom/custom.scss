@@ -394,3 +394,96 @@ div.highlight {
     border-left: 3px solid #bd93f9;
   }
 }
+// Enhanced main header styling
+.site-header {
+  background: linear-gradient(120deg, #282a36, #44475a);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 1rem 2rem;
+}
+
+// Site title enhancements
+.site-title {
+  font-size: 1.5rem !important;
+  background: -webkit-linear-gradient(#bd93f9, #8be9fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+// "for Apple Silicon Macs" subtitle
+.site-title::after {
+  content: "for Apple Silicon Macs";
+  display: block;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #6272a4;
+  -webkit-text-fill-color: #6272a4;
+  margin-top: 0.2rem;
+  letter-spacing: normal;
+}
+
+// Make the GitHub button more visible
+.aux-nav .aux-nav-list .aux-nav-list-item a {
+  background-color: rgba(68, 71, 90, 0.6);
+  color: #f8f8f2;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 2px solid #44475a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.aux-nav .aux-nav-list .aux-nav-list-item a:hover {
+  background-color: rgba(68, 71, 90, 0.8);
+  border-color: #bd93f9;
+  color: #bd93f9;
+  text-decoration: none;
+}
+
+// Enhance the search input
+.search-input {
+  border-radius: 30px;
+  background-color: rgba(68, 71, 90, 0.6);
+  border: 2px solid #44475a;
+  padding-left: 2.5rem;
+  color: #f8f8f2;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  background-color: rgba(68, 71, 90, 0.8);
+  border-color: #bd93f9;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(189, 147, 249, 0.3);
+}
+
+// Search icon
+.search-label::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236272a4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+// Mobile header improvements
+@media (max-width: 768px) {
+  .site-header {
+    padding: 1rem;
+  }
+  
+  .site-title {
+    font-size: 1.2rem !important;
+  }
+}
