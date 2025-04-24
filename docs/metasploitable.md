@@ -43,11 +43,62 @@ This guide covers the installation of Metasploitable 2 on Apple Silicon Macs usi
 
 2. Once downloaded, extract the ZIP archive to access the VMDK disk image:
    ```bash
+   cd Downloads
    unzip metasploitable-linux-2.0.0.zip
    ```
 
 <div class="image-container">
   <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/metasploitable/MS-1.png" target="_blank">
     <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/metasploitable/MS-1.png" alt="Metasploitable 2 download and extraction" class="clickable-image">
+  </a>
+</div>
+
+## Step 2: Convert VMDK to QCOW2 Format
+
+{% include step-progress.html 
+   steps="Download VM,Convert Image,Create VM,Configure VM,First Boot,Testing" 
+   current=2 %}
+
+UTM performs best when working with QCOW2 files, so we will need to convert our VMDK file to QCOW2 format to proceed.
+
+1. Navigate to the directory that contains your Metasploitable VMDK:
+```bash
+cd downloads/metasploitable-linux-2.0.0
+```
+
+2. Convert the VMDK to QCOW2 format:
+```bash
+qemu-img convert -f vmdk -O qcow2 Metasploitable.vmdk Metasploitable2.qcow2
+```
+<div class="image-container">
+  <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/metasploitable/MS-2.png" target="_blank">
+    <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/metasploitable/MS-2.png" alt="Converting VMDK to QCOW2" class="clickable-image">
+  </a>
+</div>
+
+{: .note }
+> The conversion process may take a few minutes depending on your Mac's performance.
+
+## Step 3: Create a New VM in UTM
+
+{% include step-progress.html 
+   steps="Download VM,Convert Image,Create VM,Configure VM,First Boot,Testing" 
+   current=3 %}
+   
+1. Open UTM and click on `Create a New Virtual Machine`
+
+2. Select `Emulate` (for x86 architecture)
+
+<div class="image-container">
+  <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/metasploitable/MS-3.png" target="_blank">
+    <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/metasploitable/MS-3.png" alt="UTM Emulate Selection" class="clickable-image">
+  </a>
+</div>
+
+3. Choose `Linux` as the operating system
+
+<div class="image-container">
+  <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/metasploitable/MS-4.png" target="_blank">
+    <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/metasploitable/MS-4.png" alt="UTM Linux OS Selection" class="clickable-image">
   </a>
 </div>
