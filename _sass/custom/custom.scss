@@ -36,76 +36,50 @@ table {
     color: #bd93f9;
   }
 }
-.step-progress {
-  margin: 2rem 0;
-  
-  .step-list {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      top: 30px;
-      left: 40px;
-      right: 40px;
-      height: 2px;
-      background: #44475a; // Uses your existing border color
-      z-index: 1;
-    }
-  }
-  
-  .step-item {
-    flex: 1;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    
-    &.completed .step-marker {
-      background-color: #50fa7b; // Dracula green
-      border-color: #50fa7b;
-      color: #282a36; // Dracula background
-    }
-    
-    &.active .step-marker {
-      background-color: #bd93f9; // Dracula purple
-      border-color: #bd93f9;
-      color: #282a36; // Dracula background
-    }
-    
-    &.active .step-title {
-      color: #bd93f9; // Dracula purple
-      font-weight: bold;
-    }
-  }
-  
-  .step-marker {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 3px solid #44475a;
-    background: #282a36;
-    color: #f8f8f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 auto 10px;
-    transition: all 0.3s ease;
-  }
-  
-  .step-title {
-    font-size: 0.85rem;
-    max-width: 120px;
-    margin: 0 auto;
-    color: #6272a4; // Dracula comment color
-  }
+.step-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
 }
 
+.step-item {
+  text-align: center;
+  flex: 1 1 120px;
+}
+
+.step-marker {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4ea1d3;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin: 0 auto 0.5rem auto;
+  position: relative;
+  box-shadow: 0 0 0 2px #111; // Keeps contrast sharp on dark background
+}
+
+.step-title {
+  font-size: 14px;
+  color: #dddddd;
+  max-width: 120px;
+  margin: 0 auto;
+}
+
+.step-item.active .step-marker {
+  background-color: #2ecc71;
+}
+
+.step-item.completed .step-marker {
+  background-color: #888;
+}
 // Mobile responsiveness
 @media (max-width: 768px) {
   .step-progress {
