@@ -1,0 +1,43 @@
+{% assign pages_list = site.pages | sort:"nav_order" %}
+{% assign pages_top_size = pages_list | where_exp:"item", "item.parent == nil and item.title != nil and item.nav_exclude != true" | size %}
+{% assign sorted_pages = pages_list | where_exp:"item", "item.parent == nil and item.title != nil and item.nav_exclude != true" %}
+
+<ul class="nav-list">
+  {% for child in sorted_pages %}
+    {% unless child.nav_exclude %}
+      <li class="nav-list-item{% if page.url == child.url or page.parent == child.title or page.grand_parent == child.title %} active{% endif %}">
+        {% if child.has_children == true and child.has_toc != false %}
+          <a href="#" class="nav-list-expander" aria-label="toggle links in {{ child.title }}">
+            <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg>
+          </a>
+        {% endif %}
+        <a href="{{ child.url | absolute_url }}" class="nav-list-link{% if page.url == child.url %} active{% endif %}">{{ child.title }}</a>
+        {% if child.has_children == true and child.has_toc != false %}
+          {% assign children_list = pages_list | where: "parent", child.title | where_exp:"item", "item.title != nil and item.nav_exclude != true" %}
+          <ul class="nav-list">
+          {% for grand_child in children_list %}
+            <li class="nav-list-item {% if page.url == grand_child.url %} active{% endif %}">
+              {% if grand_child.has_children == true and grand_child.has_toc != false %}
+                <a href="#" class="nav-list-expander" aria-label="toggle links in {{ grand_child.title }}">
+                  <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg>
+                </a>
+              {% endif %}
+              <a href="{{ grand_child.url | absolute_url }}" class="nav-list-link{% if page.url == grand_child.url %} active{% endif %}">{{ grand_child.title }}</a>
+              {% if grand_child.has_children == true and grand_child.has_toc != false %}
+                {% assign great_grandchildren_list = pages_list | where: "parent", grand_child.title | where_exp:"item", "item.title != nil and item.nav_exclude != true" %}
+                <ul class="nav-list">
+                {% for great_grandchild in great_grandchildren_list %}
+                  <li class="nav-list-item {% if page.url == great_grandchild.url %} active{% endif %}">
+                    <a href="{{ great_grandchild.url | absolute_url }}" class="nav-list-link{% if page.url == great_grandchild.url %} active{% endif %}">{{ great_grandchild.title }}</a>
+                  </li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endunless %}
+  {% endfor %}
+</ul>
