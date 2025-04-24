@@ -1,4 +1,3 @@
-{% raw %}
 <div class="step-progress">
   {% assign steps = include.steps | split: ',' %}
   {% assign current = include.current | plus: 0 %}
@@ -11,4 +10,3 @@
     {% endfor %}
   </ol>
 </div>
-{% endraw %}
