@@ -398,55 +398,25 @@ div.highlight {
 .site-header {
   background: linear-gradient(120deg, #282a36, #44475a);
   border-radius: 8px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 1rem 2rem;
 }
 
-// Site title enhancements
+// Style for the UTM VM text in header
 .site-title {
-  font-size: 1.5rem !important;
+  font-size: 1.4rem !important;
   background: -webkit-linear-gradient(#bd93f9, #8be9fd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 0.5px;
+}
+
+// Make the search bar more prominent
+.search {
   position: relative;
 }
 
-// "for Apple Silicon Macs" subtitle
-.site-title::after {
-  content: "for Apple Silicon Macs";
-  display: block;
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: #6272a4;
-  -webkit-text-fill-color: #6272a4;
-  margin-top: 0.2rem;
-  letter-spacing: normal;
-}
-
-// Make the GitHub button more visible
-.aux-nav .aux-nav-list .aux-nav-list-item a {
-  background-color: rgba(68, 71, 90, 0.6);
-  color: #f8f8f2;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border: 2px solid #44475a;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.aux-nav .aux-nav-list .aux-nav-list-item a:hover {
-  background-color: rgba(68, 71, 90, 0.8);
-  border-color: #bd93f9;
-  color: #bd93f9;
-  text-decoration: none;
-}
-
-// Enhance the search input
 .search-input {
   border-radius: 30px;
   background-color: rgba(68, 71, 90, 0.6);
@@ -454,6 +424,8 @@ div.highlight {
   padding-left: 2.5rem;
   color: #f8f8f2;
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 550px;
 }
 
 .search-input:focus {
@@ -477,10 +449,40 @@ div.highlight {
   background-size: contain;
 }
 
+// Style the GitHub button
+.aux-nav .aux-nav-list .aux-nav-list-item a {
+  background-color: rgba(68, 71, 90, 0.6);
+  color: #f8f8f2;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 2px solid #44475a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.aux-nav .aux-nav-list .aux-nav-list-item a:hover {
+  background-color: rgba(68, 71, 90, 0.8);
+  border-color: #bd93f9;
+  color: #bd93f9;
+  text-decoration: none;
+}
+
+// Enhance main page title
+.main-content h1 {
+  background: -webkit-linear-gradient(left, #bd93f9, #ff79c6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
 // Mobile header improvements
 @media (max-width: 768px) {
   .site-header {
-    padding: 1rem;
+    padding: 0.75rem 1rem;
   }
   
   .site-title {
