@@ -14,7 +14,7 @@ A comprehensive collection of installation and configuration guides for setting 
 
 ## Purpose
 
-This documentation helps cybersecurity students, educators, and professionals set up fully functional security lab environments on Apple Silicon Macs. Currently being developed to assist `University of Detroit Mercy` students address the unique challenges of running security-focused VMs on ARM64 architecture while maximizing performance and compatibility.
+This documentation helps cybersecurity students, educators, and professionals set up fully functional security lab environments on Apple Silicon Macs. Currently being developed to assist **University of Detroit Mercy** students in addressing the unique challenges of running security-focused VMs on ARM64 architecture while maximizing performance and compatibility.
 
 ## Virtual Machine Installation Guides
 
