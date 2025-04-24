@@ -24,18 +24,19 @@ This guide covers how to install Homebrew on Apple Silicon Macs and use it to se
 - Admin access
 - Internet connection
 - Terminal application
-<div class="image-container">
-     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/homebrew/HB-1.png" target="_blank">
-       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/homebrew/HB-1.png" alt="Opening Terminal on macOS" class="clickable-image">
-     </a>
-</div>
+
 
 ## Step 1: Install Homebrew
 
 {% include step-progress.html 
    steps="Install Homebrew,Configure PATH,Verify Installation,Install Tools,Update & Upgrade" 
    current=1 %}
-
+   
+<div class="image-container">
+     <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/homebrew/HB-1.png" target="_blank">
+       <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/homebrew/HB-1.png" alt="Opening Terminal on macOS" class="clickable-image">
+     </a>
+</div>
 In Your Terminal Run:
 
 ```bash
@@ -107,7 +108,7 @@ The following utilities and tools can be easily installed using homebrew. They a
 brew install nmap wireshark
 ```
 
-### FILE TRANSFER TOOLS (`WGET` and `CURL`)
+### File Transfer Tools (`WGET` and `CURL`)
 ```bash
 brew install wget curl
 ```
@@ -138,6 +139,7 @@ brew upgrade [package-name-here]
 
 ## Additional Resources
 
-[Official Homebrew Documentation](https://docs.brew.sh/))
-[Official Homebrew Troubleshooting Guide](https://docs.brew.sh/Troubleshooting))
+[Official Homebrew Documentation](https://docs.brew.sh/)
+
+[Official Homebrew Troubleshooting Guide](https://docs.brew.sh/Troubleshooting)
 
