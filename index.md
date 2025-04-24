@@ -10,7 +10,7 @@ permalink: /
 A comprehensive collection of installation and configuration guides for setting up cybersecurity virtual machines on Apple Silicon (M1/M2/M3) Macs using UTM.
 
 {: .warning }
-> **Warning:** The virtual machines in these guides contain intentional vulnerabilities. Always keep them isolated from production networks and the internet.## Available VM Guides
+> **Warning:** The virtual machines in these guides contain intentional vulnerabilities. Always keep them isolated from production networks and the internet.
 
 ## Purpose
 
