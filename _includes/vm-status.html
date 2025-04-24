@@ -1,0 +1,33 @@
+{% raw %}
+<div class="vm-status-dashboard">
+  <div class="vm-status-header">
+    <h4>{{ include.title }} Status</h4>
+  </div>
+  <div class="vm-status-grid">
+    <div class="vm-status-item">
+      <div class="status-label">Development Status</div>
+      <div class="status-badge status-{{ include.status | downcase | replace: ' ', '-' }}">{{ include.status }}</div>
+    </div>
+    <div class="vm-status-item">
+      <div class="status-label">Architecture</div>
+      <div class="status-info">{{ include.architecture }}</div>
+    </div>
+    <div class="vm-status-item">
+      <div class="status-label">Last Updated</div>
+      <div class="status-info">{{ include.updated }}</div>
+    </div>
+    <div class="vm-status-item">
+      <div class="status-label">Est. Completion Time</div>
+      <div class="status-info">{{ include.time }}</div>
+    </div>
+    <div class="vm-status-item">
+      <div class="status-label">Difficulty</div>
+      <div class="difficulty-badge difficulty-{{ include.difficulty | downcase }}">{{ include.difficulty }}</div>
+    </div>
+    <div class="vm-status-item">
+      <div class="status-label">UTM Compatibility</div>
+      <div class="status-info">{{ include.compatibility }}</div>
+    </div>
+  </div>
+</div>
+{% endraw %}

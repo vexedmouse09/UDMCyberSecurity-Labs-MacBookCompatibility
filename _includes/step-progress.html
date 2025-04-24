@@ -1,0 +1,14 @@
+{% raw %}
+<div class="step-progress">
+  {% assign steps = include.steps | split: ',' %}
+  {% assign current = include.current | plus: 0 %}
+  <ol class="step-list">
+    {% for step in steps %}
+      <li class="step-item {% if forloop.index == current %}active{% endif %} {% if forloop.index < current %}completed{% endif %}">
+        <div class="step-marker">{{ forloop.index }}</div>
+        <div class="step-title">{{ step }}</div>
+      </li>
+    {% endfor %}
+  </ol>
+</div>
+{% endraw %}

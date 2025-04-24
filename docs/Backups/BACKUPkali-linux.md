@@ -6,15 +6,6 @@ nav_order: 2
 
 # Kali Linux ARM64 Installation Guide for UTM
 
-{% include vm-status.html 
-   title="Kali Linux"
-   status="FINALIZED"
-   architecture="ARM64 (Native)"
-   updated="April 2025"
-   time="45-60 minutes"
-   difficulty="Beginner"
-   compatibility="UTM 4.0+" %}
-
 This guide covers the installation of Kali Linux (ARM64) on Apple Silicon Macs using UTM.
 
 ## Prerequisites
@@ -26,10 +17,6 @@ This guide covers the installation of Kali Linux (ARM64) on Apple Silicon Macs u
 
 ## Step 1: Download Kali Linux ARM64
 
-{% include step-progress.html 
-   steps="Download Kali,Create VM,Configure Settings,Install OS,First Boot,Optimization" 
-   current=1 %}
-
 1. Download the latest Kali Linux ARM64 ISO from the official Kali Linux Website
 
 <div class="image-container">
@@ -40,14 +27,13 @@ This guide covers the installation of Kali Linux (ARM64) on Apple Silicon Macs u
 
 2. Visit the official site: [Kali.org Downloads](https://www.kali.org/get-kali/#kali-installer-images)
 
+
+
 {: .warning }
 > **Important**: Make sure to select the "Apple Silicon (ARM64)" image when downloading.
 
-## Step 2: Create Your New Virtual Machine in UTM
 
-{% include step-progress.html 
-   steps="Download Kali,Create VM,Configure Settings,Install OS,First Boot,Optimization" 
-   current=2 %}
+## Step 2: Create Your New Virtual Machine in UTM
 
 1. Open UTM
 
@@ -113,10 +99,6 @@ This guide covers the installation of Kali Linux (ARM64) on Apple Silicon Macs u
 
 ## Step 3: Modify VM Settings for Installation
 
-{% include step-progress.html 
-   steps="Download Kali,Create VM,Configure Settings,Install OS,First Boot,Optimization" 
-   current=3 %}
-
 Due to a current bug in UTM, we need to install Kali Linux in console-only mode:
 
 1. In the VM settings, select `Display` under Devices and click `Remove`
@@ -137,12 +119,7 @@ Due to a current bug in UTM, we need to install Kali Linux in console-only mode:
        <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-11.png" alt="Save VM Settings" class="clickable-image">
      </a>
    </div>
-
 ## Step 4: Install Kali Linux
-
-{% include step-progress.html 
-   steps="Download Kali,Create VM,Configure Settings,Install OS,First Boot,Optimization" 
-   current=4 %}
 
 1. Start the VM by clicking the `Play` button
    <div class="image-container">
@@ -208,11 +185,8 @@ Prior to selecting continue, open up the settings window we used to install the 
 
 8. Now go back to the installation window and select `Continue` to complete the installation
 
-## Step 5: First Boot and Optimization
 
-{% include step-progress.html 
-   steps="Download Kali,Create VM,Configure Settings,Install OS,First Boot,Optimization" 
-   current=5 %}
+## Step 5: First Boot and Optimization
 
 1. Start the VM and log in with your username and password
 
@@ -227,25 +201,21 @@ Prior to selecting continue, open up the settings window we used to install the 
    sudo apt update
    sudo apt install spice-vdagent
    ```
-   <div class="image-container">
+   
+<div class="image-container">
      <a href="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-19.png" target="_blank">
        <img src="/UDMCyberSecurity-Labs-MacBookCompatibility/assets/images/kali/KL-19.png" alt="Installing SPICE Tools" class="clickable-image">
      </a>
    </div>
-
 ## Step 6: Update and Upgrade
-{% include step-progress.html
-steps="Download Kali,Create VM,Configure Settings,Install OS,First Boot,Optimization"
-current=6 %}
-
 Run the following command to ensure all packages on the Kali Linux system are up to date:
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
-
 ## Step 7: Enjoy Your Kali Linux Virtual Machine!
-
-Your Kali Linux installation is now complete and optimized for Apple Silicon. You can proceed to install additional tools or configure the environment to your needs.
 
 {: .warning }
 > Remember that Kali Linux contains powerful security tools. Always use them ethically and legally.
+
+
+
