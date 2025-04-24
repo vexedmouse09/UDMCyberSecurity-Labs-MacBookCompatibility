@@ -1,4 +1,4 @@
-# UTM Cybersecurity Labs for Apple Silicon Macs
+# Retooling Cybersecurity VMs for Apple Silicon Macs
 
 A comprehensive collection of installation and configuration guides for setting up cybersecurity virtual machines on Apple Silicon (M1/M2/M3) Macs using UTM.
 
