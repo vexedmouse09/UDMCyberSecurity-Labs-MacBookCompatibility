@@ -8,7 +8,7 @@ permalink: /docs/tools
 
 # Tools & Utilities
 
-This section contains guides for essential tools and utilities needed to complete your lab environment on your Apple Silicon Mac.
+This section contains guides for essential tools and utilities needed to complete your lab environment on your Apple Silicon Mac
 
 ## Available Guides
 
