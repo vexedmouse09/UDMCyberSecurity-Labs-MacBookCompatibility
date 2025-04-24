@@ -6,22 +6,26 @@ baseurl: "/UDMCyberSecurity-Labs-MacBookCompatibility"
 
 # Build settings
 markdown: kramdown
+remote_theme: just-the-docs/just-the-docs@v0.4.2
 
 # Theme settings
-remote_theme: just-the-docs/just-the-docs@v0.4.2
 color_scheme: dark
-
-# Just the Docs settings
 search_enabled: true
 heading_anchors: true
+
+# Navigation settings
 aux_links:
   "GitHub Repository":
     - "https://github.com/vexedmouse09/UDMCyberSecurity-Labs-MacBookCompatibility"
 
+# Enable built-in collapsible navigation
+nav_fold:
+  auto: true  # Auto-collapse inactive sections
+
 # Footer content
 footer_content: "Copyright &copy; 2025. Distributed under the MIT license."
 
-# Custom callouts
+# Enable callouts
 callouts:
   warning:
     title: Warning
@@ -32,3 +36,11 @@ callouts:
   tip:
     title: Tip
     color: green
+
+# Search settings
+search:
+  heading_level: 2
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
+  tokenizer_separator: /[\s/]+/
