@@ -36,6 +36,7 @@ table {
     color: #bd93f9;
   }
 }
+// Step Progress Indicators - Compatible with your Dracula theme
 .step-progress {
   margin: 2rem 0;
   
@@ -178,6 +179,43 @@ table {
     }
   }
 }
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .step-progress {
+    .step-list {
+      flex-direction: column;
+      
+      &::before {
+        top: 40px;
+        bottom: 40px;
+        left: 30px;
+        right: auto;
+        width: 2px;
+        height: auto;
+      }
+    }
+    
+    .step-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .step-marker {
+      margin: 0 1rem 0 0;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+    
+    .step-title {
+      text-align: left;
+      margin: 0;
+      max-width: none;
+    }
+  }
+}
+
 .vm-status-dashboard {
   background: darken(#282a36, 2%);
   border-radius: 6px;
