@@ -1,397 +1,25 @@
-// Custom styles
-// Enhanced styling for UTM Cybersecurity Labs documentation
-// Place this in _sass/custom/custom.scss
+// Custom styles for the cybersecurity labs site
 
-// Improved Main Title
-.site-title {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  background: linear-gradient(90deg, #bd93f9 0%, #ff79c6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.05em;
-}
-
-// Collapsible Sidebar
-.side-bar {
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.sidebar-toggle-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 1rem;
-  right: -1rem;
-  height: 2rem;
-  width: 2rem;
-  background-color: #44475a;
-  border-radius: 50%;
-  color: #f8f8f2;
-  cursor: pointer;
-  z-index: 100;
-  border: 1px solid #6272a4;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.sidebar-toggle-button:hover {
-  background-color: #6272a4;
-}
-
-.side-bar.collapsed {
-  margin-left: -250px;
-}
-
-.main.shifted {
-  margin-left: 0;
-  width: 100%;
-}
-
-// Category Icons in Sidebar
-.nav-category-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.nav-category-icon {
-  width: 18px;
-  height: 18px;
-  fill: #bd93f9;
-}
-
-// Status badges for VM installation guides
-.status-badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: 2rem;
-  margin-left: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.status-completed {
-  background-color: rgba(80, 250, 123, 0.2);
-  color: #50fa7b;
-  border: 1px solid rgba(80, 250, 123, 0.4);
-}
-
-.status-in-progress {
-  background-color: rgba(255, 184, 108, 0.2);
-  color: #ffb86c;
-  border: 1px solid rgba(255, 184, 108, 0.4);
-}
-
-.status-coming-soon {
-  background-color: rgba(98, 114, 164, 0.2);
-  color: #8be9fd;
-  border: 1px solid rgba(139, 233, 253, 0.4);
-}
-
-// Enhanced warning callouts
+// Callout styling
 .warning {
-  position: relative;
-  border-left: 4px solid #ff5555;
   background-color: rgba(255, 85, 85, 0.1);
-  border-radius: 0 4px 4px 0;
-  padding: 0.8rem 1rem 0.8rem 3rem;
-  margin: 1.5rem 0;
+  border-left: 4px solid #ff5555;
+  border-radius: 4px;
+  padding: 0.8rem;
+  margin: 1rem 0;
 }
 
-.warning::before {
-  content: "⚠️";
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-}
-
-// Enhanced note callouts
 .note {
-  position: relative;
-  border-left: 4px solid #8be9fd;
   background-color: rgba(139, 233, 253, 0.1);
-  border-radius: 0 4px 4px 0;
-  padding: 0.8rem 1rem 0.8rem 3rem;
-  margin: 1.5rem 0;
+  border-left: 4px solid #8be9fd;
+  border-radius: 4px;
+  padding: 0.8rem;
+  margin: 1rem 0;
 }
 
-.note::before {
-  content: "ℹ️";
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-}
-
-// Enhanced tip callouts
 .tip {
-  position: relative;
-  border-left: 4px solid #50fa7b;
   background-color: rgba(80, 250, 123, 0.1);
-  border-radius: 0 4px 4px 0;
-  padding: 0.8rem 1rem 0.8rem 3rem;
-  margin: 1.5rem 0;
-}
-
-.tip::before {
-  content: "💡";
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-}
-
-// Improved code blocks
-pre.highlight {
-  background-color: #282a36;
-  border: 1px solid #44475a;
-  border-radius: 4px;
-  padding: 0.8rem;
-  margin: 1.5rem 0;
-  position: relative;
-}
-
-pre.highlight::before {
-  content: attr(data-lang);
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  font-size: 0.7rem;
-  background-color: #44475a;
-  color: #f8f8f2;
-  padding: 0.1rem 0.5rem;
-  border-radius: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-// Animated scrollbar
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #282a36;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #44475a;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #6272a4;
-}
-
-// Table styling improvements
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 1.5rem 0;
-}
-
-th {
-  background-color: rgba(189, 147, 249, 0.1);
-  color: #bd93f9;
-  font-weight: 600;
-  border-bottom: 2px solid #44475a;
-  padding: 0.75rem 1rem;
-}
-
-td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #44475a;
-}
-
-tr:last-child td {
-  border-bottom: none;
-}
-
-// "Copy" button for code blocks
-.copy-button {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  padding: 0.2rem 0.5rem;
-  background-color: #44475a;
-  color: #f8f8f2;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 0.7rem;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-pre.highlight:hover .copy-button {
-  opacity: 1;
-}
-
-.copy-button:hover {
-  background-color: #6272a4;
-}
-
-// Improved navigation at the bottom of pages
-.navigation-wrapper {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #44475a;
-}
-
-.prev-page, .next-page {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #bd93f9;
-  text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.prev-page:hover, .next-page:hover {
-  background-color: rgba(189, 147, 249, 0.1);
-}
-
-.prev-page::before {
-  content: "←";
-}
-
-.next-page::after {
-  content: "→";
-}
-
-// Breadcrumb navigation enhancement
-.breadcrumb-nav {
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-}
-
-.breadcrumb-item:not(:last-child)::after {
-  content: "›";
-  margin: 0 0.5rem;
-  color: #6272a4;
-}
-
-.breadcrumb-item:last-child {
-  color: #f8f8f2;
-  font-weight: 500;
-}
-
-// Responsive improvements
-@media (max-width: 800px) {
-  .side-bar {
-    margin-left: -250px;
-  }
-  
-  .side-bar.collapsed {
-    margin-left: 0;
-  }
-  
-  .sidebar-toggle-button {
-    right: -3rem;
-  }
-  
-  .main {
-    margin-left: 0;
-    width: 100%;
-  }
-  
-  .main.shifted {
-    margin-left: 250px;
-    width: calc(100% - 250px);
-  }
-}
-
-// Add more purple accents
-.nav-list .nav-list-item .nav-list-link.active {
-  color: $purple-000;
-  background-color: rgba($purple-000, 0.1);
-}
-
-.nav-list .nav-list-item .nav-list-link:hover {
-  color: $purple-000;
-}
-
-// Make main headings more purple-focused
-h1, h2, h3 {
-  color: $purple-000;
-}
-
-// Make links stand out more with purple
-a:not(.btn) {
-  color: $purple-100;
-  text-decoration: none;
-  
-  &:hover {
-    color: $purple-000;
-    text-decoration: underline;
-  }
-}
-
-// Improve code blocks
-pre.highlight {
-  border: 1px solid $grey-dk-100;
-  border-radius: 4px;
-}
-
-code {
-  color: $yellow-000; // Yellow code text
-}
-
-// Tables
-table {
-  background-color: $grey-dk-000;
-  border: 1px solid $grey-dk-100;
-}
-
-// Make images stand out better
-img {
-  border: 1px solid $grey-dk-100;
-  border-radius: 4px;
-  margin: 1em 0;
-}
-
-// Custom callouts
-.warning {
-  background-color: rgba($red-000, 0.2);
-  border-left: 4px solid $red-000;
-  border-radius: 4px;
-  padding: 0.8rem;
-  margin: 1rem 0;
-}
-
-.note {
-  background-color: rgba($blue-000, 0.2);
-  border-left: 4px solid $blue-000;
-  border-radius: 4px;
-  padding: 0.8rem;
-  margin: 1rem 0;
-}
-
-.tip {
-  background-color: rgba($green-000, 0.2);
-  border-left: 4px solid $green-000;
+  border-left: 4px solid #50fa7b;
   border-radius: 4px;
   padding: 0.8rem;
   margin: 1rem 0;
@@ -404,35 +32,82 @@ img {
 }
 
 .clickable-image {
-  border: 2px solid $grey-dk-100;
+  border: 2px solid #44475a;
   border-radius: 5px;
   max-width: 100%;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .clickable-image:hover {
-  border-color: $purple-000;
+  border-color: #bd93f9;
   transform: scale(1.01);
 }
 
-// Extra purple accents
-.search-input {
-  border-color: $grey-dk-100;
+// Tables
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1.5rem 0;
   
-  &:focus {
-    border-color: $purple-000;
-    box-shadow: 0 0 0 3px rgba($purple-000, 0.25);
+  th {
+    background-color: rgba(189, 147, 249, 0.1);
+    color: #bd93f9;
+    font-weight: 600;
+    border-bottom: 2px solid #44475a;
+    padding: 0.75rem 1rem;
+  }
+  
+  td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #44475a;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
   }
 }
 
-.btn {
+// Sidebar toggle button
+.sidebar-toggle-button {
+  display: block;
+  position: absolute;
+  top: 0.6rem;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  background-color: #44475a;
+  color: #f8f8f2;
+  border-radius: 50%;
+  border: 1px solid #6272a4;
+  z-index: 100;
+  cursor: pointer;
+  text-align: center;
+  line-height: 24px;
+  font-size: 12px;
+  transition: transform 0.2s;
+  
   &:hover {
-    background-color: $purple-200;
+    background-color: #6272a4;
   }
 }
 
-// Add subtle purple glow to highlighted sections
-::selection {
-  background-color: rgba($purple-000, 0.3);
+.side-bar.collapsed {
+  width: 0;
+  
+  .site-header, .site-nav, .site-footer {
+    display: none;
+  }
+}
+
+.main.expanded {
+  margin-left: 0;
+}
+
+// Responsive improvements
+@media (max-width: 800px) {
+  .sidebar-toggle-button {
+    display: none;
+  }
 }

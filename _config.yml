@@ -6,8 +6,8 @@ baseurl: "/UDMCyberSecurity-Labs-MacBookCompatibility"
 
 # Build settings
 markdown: kramdown
-remote_theme: just-the-docs/just-the-docs@v0.4.0
-color_scheme: dracula
+remote_theme: just-the-docs/just-the-docs@v0.4.2
+color_scheme: dark
 
 # Just the Docs settings
 search_enabled: true
@@ -16,21 +16,20 @@ aux_links:
   "GitHub Repository":
     - "https://github.com/vexedmouse09/UDMCyberSecurity-Labs-MacBookCompatibility"
 
+# Enable collapsible navigation
+collapse_navigation: true
 
-collections:
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
-
-just_the_docs:
-  collections:
-    docs:
-      name: Documentation
+# Enable mermaid diagrams
+mermaid:
+  # Version of mermaid library
+  version: "9.1.6"
+  # Set to true to initialize mermaid
+  initialize: true
 
 # Footer content
 footer_content: "Copyright &copy; 2025. Distributed under the MIT license."
 
-# Callouts
+# Custom callouts
 callouts:
   warning:
     title: Warning
@@ -41,7 +40,3 @@ callouts:
   tip:
     title: Tip
     color: green
-
-# Build settings
-markdown: kramdown
-highlighter: rouge
