@@ -106,6 +106,14 @@ table {
     color: #6272a4; // Dracula comment color
   }
 }
+.step-progress .step-list {
+  counter-reset: none;
+  list-style-type: none;
+}
+
+.step-progress .step-item::before {
+  display: none;
+}
 
 // Mobile responsiveness
 @media (max-width: 768px) {
