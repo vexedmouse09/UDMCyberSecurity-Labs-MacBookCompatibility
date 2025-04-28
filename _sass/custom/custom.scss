@@ -394,3 +394,42 @@ div.highlight {
     border-left: 3px solid #bd93f9;
   }
 }
+
+/* Fix for ordered lists that have content interrupting them */
+.main-content {
+  counter-reset: item;
+  
+  ol {
+    counter-reset: none;
+    list-style-type: none;
+    
+    > li {
+      counter-increment: item;
+      display: block;
+      position: relative;
+      
+      &:before {
+        content: counter(item) ".";
+        position: absolute;
+        left: -1.5em;
+        width: 1em;
+        text-align: right;
+        color: #f8f8f2; /* Dracula foreground color */
+        font-weight: bold;
+      }
+    }
+  }
+  
+  /* Reset counter for nested lists */
+  ol ol {
+    counter-reset: subitem;
+    
+    > li {
+      counter-increment: subitem;
+      
+      &:before {
+        content: counter(item) "." counter(subitem) ".";
+      }
+    }
+  }
+}
