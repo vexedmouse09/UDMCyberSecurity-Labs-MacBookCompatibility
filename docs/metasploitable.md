@@ -258,5 +258,6 @@ Now that you have Metasploitable 2 running, you can:
 
 You have successfully set up Metasploitable 2 on your Apple Silicon Mac using UTM. This deliberately vulnerable VM provides an excellent platform for practicing penetration testing techniques in a safe, controlled environment.
 
-For additional resources and practice exercises, check out our other guides on this site!
+For additional resources and practice exercises, check out our other guides on this site.
+
 
