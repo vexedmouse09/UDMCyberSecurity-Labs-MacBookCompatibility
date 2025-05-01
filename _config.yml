@@ -49,3 +49,7 @@ search:
   preview_words_before: 5
   preview_words_after: 10
   tokenizer_separator: /[\s/]+/
+
+
+after_footer_scripts:
+  - /assets/js/custom.js
