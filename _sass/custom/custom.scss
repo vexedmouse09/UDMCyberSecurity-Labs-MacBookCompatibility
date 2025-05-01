@@ -395,7 +395,7 @@ div.highlight {
   }
 }
 
-/* Improved fix for ordered lists to prevent numbering resets */
+/* Enhanced fix for ordered lists to prevent numbering resets */
 .main-content {
   counter-reset: item;
   
@@ -470,8 +470,12 @@ div.highlight {
   }
 }
 
-/* Make step progress indicator elements clickable */
+/* Make step progress indicator elements clickable with CSS only */
 .step-progress {
+  .step-list {
+    list-style: none;
+  }
+  
   .step-item {
     cursor: pointer;
     transition: all 0.2s ease;
@@ -482,61 +486,79 @@ div.highlight {
       .step-marker {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       }
+      
+      .step-title {
+        color: #ff79c6;
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  /* Enhanced active and completed states */
+  .step-item {
+    &.active .step-marker {
+      animation: pulse 2s infinite;
     }
   }
 }
 
-/* Image zoom functionality */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(189, 147, 249, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(189, 147, 249, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(189, 147, 249, 0);
+  }
+}
+
+/* Image zoom functionality with CSS */
 .image-container {
+  position: relative;
+  overflow: hidden;
+  
   .clickable-image {
     cursor: zoom-in;
     transition: all 0.3s ease;
     
     &:hover {
       transform: scale(1.02);
+      border-color: #ff79c6;
+    }
+    
+    &:active {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1.8);
+      max-width: 90vw;
+      max-height: 90vh;
+      z-index: 1000;
+      cursor: zoom-out;
+      background-color: rgba(40, 42, 54, 0.9);
+      padding: 10px;
+      border: 3px solid #bd93f9;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     }
   }
 }
 
-/* Full-screen image modal */
-.image-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(40, 42, 54, 0.9);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  cursor: zoom-out;
+/* Back to top link (CSS-only version) */
+.page-content {
+  position: relative;
 }
 
-.image-modal-content {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  border: 2px solid #f8f8f2;
-  border-radius: 4px;
-}
-
-.image-modal-close {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  color: #f8f8f2;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Back to top button */
-.back-to-top {
-  display: none;
+.back-to-top-wrapper {
   position: fixed;
   bottom: 30px;
   right: 30px;
+  z-index: 99;
+}
+
+.back-to-top {
+  display: inline-block;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -546,138 +568,160 @@ div.highlight {
   text-align: center;
   line-height: 45px;
   font-size: 24px;
-  cursor: pointer;
-  z-index: 99;
   transition: all 0.3s ease;
+  text-decoration: none;
+  opacity: 0.8;
   
   &:hover {
     background-color: rgba(189, 147, 249, 0.6);
+    opacity: 1;
+  }
+  
+  &::after {
+    content: "↑";
   }
 }
 
-/* The following script tag contains the JavaScript to make the features work */
-</style>
+/* Enhanced code blocks with hover effect */
+div.highlight {
+  position: relative;
+  
+  &:hover {
+    pre.highlight {
+      border-color: #bd93f9;
+      box-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+    }
+  }
+  
+  pre.highlight {
+    transition: all 0.3s ease;
+  }
+}
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Make step progress indicators clickable
-  const stepItems = document.querySelectorAll('.step-progress .step-item');
-  stepItems.forEach(function(item) {
-    const stepNumber = parseInt(item.querySelector('.step-marker').textContent);
-    const stepTitle = item.querySelector('.step-title').textContent.trim();
-    
-    item.addEventListener('click', function() {
-      // Find heading that corresponds to this step
-      const headings = Array.from(document.querySelectorAll('h2, h3'));
-      let targetHeading = null;
-      
-      // First try to find by exact match with step title
-      for (const heading of headings) {
-        if (heading.textContent.includes(stepTitle) ||
-            heading.textContent.includes(`Step ${stepNumber}`)) {
-          targetHeading = heading;
-          break;
-        }
-      }
-      
-      // If no match, try to find by step number in text content
-      if (!targetHeading) {
-        for (const heading of headings) {
-          if (heading.textContent.includes(`${stepNumber}:`)) {
-            targetHeading = heading;
-            break;
-          }
-        }
-      }
-      
-      if (targetHeading) {
-        targetHeading.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
+/* Better callouts with icons */
+.warning, .danger {
+  position: relative;
+  padding-left: 3rem;
   
-  // Create image modal for zooming
-  const modal = document.createElement('div');
-  modal.className = 'image-modal';
-  modal.innerHTML = `
-    <span class="image-modal-close">&times;</span>
-    <img class="image-modal-content">
-  `;
-  document.body.appendChild(modal);
+  &::before {
+    content: "⚠️";
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.note, .info {
+  position: relative;
+  padding-left: 3rem;
   
-  const modalImg = modal.querySelector('.image-modal-content');
-  const closeBtn = modal.querySelector('.image-modal-close');
+  &::before {
+    content: "ℹ️";
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.tip, .success {
+  position: relative;
+  padding-left: 3rem;
   
-  // Add click handlers to all clickable images
-  const images = document.querySelectorAll('.clickable-image');
-  images.forEach(function(img) {
-    img.addEventListener('click', function(e) {
-      e.preventDefault();
-      modal.style.display = 'flex';
-      modalImg.src = this.src;
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
-    });
-  });
+  &::before {
+    content: "💡";
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Add table of contents scrollspy highlight effect */
+.nav-list .nav-list-item .nav-list-link {
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
   
-  // Close modal when clicking on it
-  modal.addEventListener('click', function() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
-  });
+  &:hover {
+    border-left: 2px solid #bd93f9;
+    padding-left: calc(1rem - 2px);
+  }
   
-  closeBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
-  });
+  &.active {
+    border-left: 2px solid #ff79c6;
+    padding-left: calc(1rem - 2px);
+  }
+}
+
+/* Footer links hover animation */
+footer a {
+  position: relative;
+  text-decoration: none;
   
-  // Prevent modal from closing when clicking on the image
-  modalImg.addEventListener('click', function(e) {
-    e.stopPropagation();
-  });
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #bd93f9;
+    transition: width 0.3s ease;
+  }
   
-  // Add back to top button
-  const backToTopBtn = document.createElement('div');
-  backToTopBtn.className = 'back-to-top';
-  backToTopBtn.innerHTML = '&uarr;';
-  document.body.appendChild(backToTopBtn);
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+/* Better status badges with glow effect */
+.status-badge {
+  &.status-finalized {
+    animation: green-glow 3s infinite alternate;
+  }
   
-  backToTopBtn.addEventListener('click', function() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
+  &.status-in-progress {
+    animation: yellow-glow 3s infinite alternate;
+  }
   
-  // Show/hide back to top button based on scroll position
-  window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 300) {
-      backToTopBtn.style.display = 'block';
-    } else {
-      backToTopBtn.style.display = 'none';
-    }
-  });
+  &.status-coming-soon {
+    animation: purple-glow 3s infinite alternate;
+  }
+}
+
+@keyframes green-glow {
+  from {
+    box-shadow: 0 0 5px rgba(80, 250, 123, 0.2);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(80, 250, 123, 0.5);
+  }
+}
+
+@keyframes yellow-glow {
+  from {
+    box-shadow: 0 0 5px rgba(241, 250, 140, 0.2);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(241, 250, 140, 0.5);
+  }
+}
+
+@keyframes purple-glow {
+  from {
+    box-shadow: 0 0 5px rgba(189, 147, 249, 0.2);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5);
+  }
+}
+
+/* Improved navigation highlighting */
+.nav-list .nav-list-item {
+  transition: all 0.2s ease;
   
-  // Add code copy buttons to all code blocks
-  const codeBlocks = document.querySelectorAll('pre.highlight');
-  codeBlocks.forEach(function(block) {
-    if (!block.querySelector('.copy-code-button')) {
-      const button = document.createElement('button');
-      button.className = 'copy-code-button';
-      button.setAttribute('aria-label', 'Copy code to clipboard');
-      block.appendChild(button);
-      
-      button.addEventListener('click', function() {
-        const code = block.querySelector('code').innerText;
-        navigator.clipboard.writeText(code).then(function() {
-          button.classList.add('copied');
-          setTimeout(function() {
-            button.classList.remove('copied');
-          }, 2000);
-        });
-      });
-    }
-  });
-});
-</script>
-<style>
+  &:hover {
+    background-color: rgba(189, 147, 249, 0.1);
+  }
+}
