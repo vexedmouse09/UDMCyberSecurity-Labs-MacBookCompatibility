@@ -16,7 +16,7 @@ This documentation helps cybersecurity students, educators, and professionals se
 | **Kali Linux** | `FINALIZED` Penetration testing distribution | ARM64 (Native) | [Installation Guide](./docs/kali-linux.html) |
 | **Metasploitable 2** | `FINALIZED` Intentionally vulnerable Linux VM | x86 (Emulated) | [Installation Guide](./docs/metasploitable.html) |
 | **De-ICE S1.100 & S1.110** | `IN PROGRESS` Penetration testing practice targets | x86 (Emulated) | [Installation Guide](./docs/deice.html) |
-| **CyberOps Workstation** | `COMING SOON` Cisco's security lab environment | x86 (Emulated) | [Installation Guide](./docs/cyberops.html) |
+| **CyberOps Workstation** | `FINALIZED` Cisco's security lab environment | x86 (Emulated) | [Installation Guide](./docs/cyberops.html) |
 | **Greenbone Vulnerability Scanner** | `COMING SOON` Network vulnerability scanning | ARM64 (Native) | [Installation Guide](./docs/greenbone.html) |
 
 ## Tools & Utilities
