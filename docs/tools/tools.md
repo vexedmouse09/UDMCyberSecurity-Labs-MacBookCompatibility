@@ -16,4 +16,4 @@ Browse our collection of tool-specific documentation:
 
 | Tool | Purpose | Guide |
 |------|---------|-------|
-| [Homebrew](./homebrew) | Package manager for macOS | Basic installation and usage for lab dependencies |
+| [Homebrew](./tools/homebrew) | Package manager for macOS | Basic installation and usage for lab dependencies |
