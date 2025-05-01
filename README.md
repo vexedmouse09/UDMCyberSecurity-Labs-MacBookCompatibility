@@ -26,6 +26,11 @@ Setting up your lab environment requires various supporting tools. Check out our
 - [Homebrew](./docs/tools/homebrew.html) - Package manager for installing essential tools
 - More Coming Soon...
 
+## Lab Verifications
+
+As this project was created to address potential compatibility issues with Macbooks and UDM Cybersecurity assignments, I will provide verifications of real labs from UDM courses to ensure they are able to be completed on a Macbook virtualizing with UTM.
+Check out our [Lab Verifications](./docs/lab-verifications) section for more information
+
 ## Performance Tips
 
 Virtual Machine Performance on ARM64 systems can be enhanced b y keeping the following in mind:
