@@ -22,6 +22,6 @@ Browse our `growing` collection of lab verifications:
 
 | Lab | Description | VMs Required |
 |-----|-------------|-------------|
-| [Metasploitable Vulnerability Assessment](./lab-verifications/kali-metasploitable) | Basic penetration testing workflow | Kali Linux, Metasploitable 2 |
+| [Metasploitable Vulnerability Assessment](./docs/lab-verifications/kali-metasploitable) | Basic penetration testing workflow | Kali Linux, Metasploitable 2 |
 
 More lab verifications will be added as additional VMs are documented.
