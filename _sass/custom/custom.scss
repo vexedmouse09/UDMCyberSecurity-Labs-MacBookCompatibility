@@ -395,17 +395,19 @@ div.highlight {
   }
 }
 
-/* Fix for ordered lists that have content interrupting them */
+/* Improved fix for ordered lists to prevent numbering resets */
 .main-content {
   counter-reset: item;
   
   ol {
-    counter-reset: none;
     list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
     
     > li {
       counter-increment: item;
-      display: block;
+      margin-bottom: 10px;
+      margin-left: 2em;
       position: relative;
       
       &:before {
@@ -414,13 +416,23 @@ div.highlight {
         left: -1.5em;
         width: 1em;
         text-align: right;
-        color: #f8f8f2; /* Dracula foreground color */
+        color: #f8f8f2;
         font-weight: bold;
+      }
+      
+      /* Force all content after the li to be part of the same list item */
+      /* This is critical for maintaining proper numbering */
+      ~ div,
+      ~ p,
+      ~ pre,
+      ~ .image-container {
+        margin-left: 2em;
+        margin-bottom: 15px;
       }
     }
   }
   
-  /* Reset counter for nested lists */
+  /* For nested lists */
   ol ol {
     counter-reset: subitem;
     
@@ -433,3 +445,239 @@ div.highlight {
     }
   }
 }
+
+/* Alternative HTML-friendly numbering solution */
+.custom-ordered-list {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  counter-reset: custom-counter;
+  
+  .list-item {
+    counter-increment: custom-counter;
+    position: relative;
+    padding-left: 2.5em;
+    margin-bottom: 1.5em;
+    
+    &:before {
+      content: counter(custom-counter) ".";
+      position: absolute;
+      left: 0.5em;
+      top: 0;
+      font-weight: bold;
+      color: #f8f8f2;
+    }
+  }
+}
+
+/* Make step progress indicator elements clickable */
+.step-progress {
+  .step-item {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-3px);
+      
+      .step-marker {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}
+
+/* Image zoom functionality */
+.image-container {
+  .clickable-image {
+    cursor: zoom-in;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+/* Full-screen image modal */
+.image-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(40, 42, 54, 0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.image-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border: 2px solid #f8f8f2;
+  border-radius: 4px;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #f8f8f2;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Back to top button */
+.back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(189, 147, 249, 0.3);
+  border: 2px solid #bd93f9;
+  color: #f8f8f2;
+  text-align: center;
+  line-height: 45px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 99;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(189, 147, 249, 0.6);
+  }
+}
+
+/* The following script tag contains the JavaScript to make the features work */
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Make step progress indicators clickable
+  const stepItems = document.querySelectorAll('.step-progress .step-item');
+  stepItems.forEach(function(item) {
+    const stepNumber = parseInt(item.querySelector('.step-marker').textContent);
+    const stepTitle = item.querySelector('.step-title').textContent.trim();
+    
+    item.addEventListener('click', function() {
+      // Find heading that corresponds to this step
+      const headings = Array.from(document.querySelectorAll('h2, h3'));
+      let targetHeading = null;
+      
+      // First try to find by exact match with step title
+      for (const heading of headings) {
+        if (heading.textContent.includes(stepTitle) ||
+            heading.textContent.includes(`Step ${stepNumber}`)) {
+          targetHeading = heading;
+          break;
+        }
+      }
+      
+      // If no match, try to find by step number in text content
+      if (!targetHeading) {
+        for (const heading of headings) {
+          if (heading.textContent.includes(`${stepNumber}:`)) {
+            targetHeading = heading;
+            break;
+          }
+        }
+      }
+      
+      if (targetHeading) {
+        targetHeading.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+  
+  // Create image modal for zooming
+  const modal = document.createElement('div');
+  modal.className = 'image-modal';
+  modal.innerHTML = `
+    <span class="image-modal-close">&times;</span>
+    <img class="image-modal-content">
+  `;
+  document.body.appendChild(modal);
+  
+  const modalImg = modal.querySelector('.image-modal-content');
+  const closeBtn = modal.querySelector('.image-modal-close');
+  
+  // Add click handlers to all clickable images
+  const images = document.querySelectorAll('.clickable-image');
+  images.forEach(function(img) {
+    img.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+  });
+  
+  // Close modal when clicking on it
+  modal.addEventListener('click', function() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+  });
+  
+  closeBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+  });
+  
+  // Prevent modal from closing when clicking on the image
+  modalImg.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+  
+  // Add back to top button
+  const backToTopBtn = document.createElement('div');
+  backToTopBtn.className = 'back-to-top';
+  backToTopBtn.innerHTML = '&uarr;';
+  document.body.appendChild(backToTopBtn);
+  
+  backToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Show/hide back to top button based on scroll position
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.style.display = 'block';
+    } else {
+      backToTopBtn.style.display = 'none';
+    }
+  });
+  
+  // Add code copy buttons to all code blocks
+  const codeBlocks = document.querySelectorAll('pre.highlight');
+  codeBlocks.forEach(function(block) {
+    if (!block.querySelector('.copy-code-button')) {
+      const button = document.createElement('button');
+      button.className = 'copy-code-button';
+      button.setAttribute('aria-label', 'Copy code to clipboard');
+      block.appendChild(button);
+      
+      button.addEventListener('click', function() {
+        const code = block.querySelector('code').innerText;
+        navigator.clipboard.writeText(code).then(function() {
+          button.classList.add('copied');
+          setTimeout(function() {
+            button.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    }
+  });
+});
+</script>
+<style>
