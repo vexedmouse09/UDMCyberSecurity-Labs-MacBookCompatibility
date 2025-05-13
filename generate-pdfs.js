@@ -4,12 +4,11 @@ const path = require('path');
 
 // List of guides to convert to PDFs
 const guides = [
-  { title: 'Kali Linux', path: '/docs/kali-linux.html' },
-  { title: 'Metasploitable 2', path: '/docs/metasploitable.html' },
-  { title: 'CyberOps Workstation', path: '/docs/cyberops.html' },
-  { title: 'Homebrew Installation', path: '/docs/tools/homebrew.html' },
-  { title: 'Lab Verification - Kali to Metasploitable', path: '/docs/lab-verifications/kali-metasploitable.html' }
-  // Add other guides as needed
+  { title: 'Kali-Linux', path: '/docs/kali-linux.html' },
+  { title: 'Metasploitable-2', path: '/docs/metasploitable.html' },
+  { title: 'CyberOps-Workstation', path: '/docs/cyberops.html' },
+  { title: 'Homebrew-Installation', path: '/docs/tools/homebrew.html' },
+  { title: 'Lab-Verification-Kali-Metasploitable', path: '/docs/lab-verifications/kali-metasploitable.html' }
 ];
 
 const baseUrl = 'https://vexedmouse09.github.io/UDMCyberSecurity-Labs-MacBookCompatibility';
@@ -28,11 +27,17 @@ async function generatePDFs() {
       // Set viewport to ensure full content is captured
       await page.setViewport({ width: 1200, height: 1800 });
       
-      // Add custom CSS for PDF styling
+      // Inject custom CSS for PDF formatting
       await page.addStyleTag({
         content: `
           @media print {
-            .side-bar, .search, .site-footer, .breadcrumb-nav, .pdf-download-section {
+            .side-bar, 
+            .search-input-wrap, 
+            .site-footer, 
+            .breadcrumb-nav,
+            .main-header,
+            #edit-this-page,
+            .navigation-list-toggle {
               display: none !important;
             }
             
@@ -40,6 +45,10 @@ async function generatePDFs() {
               width: 100% !important;
               margin: 0 !important;
               padding: 20px !important;
+            }
+            
+            .main-content-wrap {
+              padding-top: 0 !important;
             }
             
             img {
@@ -61,23 +70,22 @@ async function generatePDFs() {
       // Navigate to the page
       await page.goto(`${baseUrl}${guide.path}`, { 
         waitUntil: 'networkidle0',
-        timeout: 60000
+        timeout: 90000 // Longer timeout for page loading
       });
       
-      // Wait for images to load
-      await page.waitForSelector('img', { timeout: 5000 }).catch(() => 
-        console.log(`No images found or timed out for ${guide.title}`)
-      );
+      // Wait for content to load
+      await page.waitForSelector('.main-content', { 
+        timeout: 10000 
+      }).catch(() => {
+        console.log(`Main content selector not found for ${guide.title}`);
+      });
       
-      // Give additional time for all resources to load
-      await page.waitForTimeout(3000);
-      
-      // Create sanitized filename
-      const filename = `${guide.title.replace(/[^a-z0-9]/gi, '-').toLowerCase()}.pdf`;
+      // Additional wait for images
+      await page.waitForTimeout(5000);
       
       // Generate PDF
       await page.pdf({
-        path: path.join('pdfs', filename),
+        path: path.join('pdfs', `${guide.title}.pdf`),
         format: 'A4',
         printBackground: true,
         margin: {
@@ -91,7 +99,7 @@ async function generatePDFs() {
         footerTemplate: '<div style="font-size: 10px; text-align: center; width: 100%;">Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>'
       });
       
-      console.log(`Generated PDF: ${filename}`);
+      console.log(`Generated PDF: ${guide.title}.pdf`);
       await page.close();
     } catch (error) {
       console.error(`Error processing ${guide.title}:`, error);
