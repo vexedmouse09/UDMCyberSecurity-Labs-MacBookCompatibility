@@ -249,3 +249,5 @@ Your Kali Linux installation is now complete and optimized for Apple Silicon. Yo
 
 {: .warning }
 > Remember that Kali Linux contains powerful security tools. Always use them ethically and legally.
+
+{% include pdf-download-button.html %}
