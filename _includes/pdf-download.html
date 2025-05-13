@@ -1,6 +1,15 @@
-<div class="pdf-download-section">
-  <h3>Downloads</h3>
-  <a href="{{ site.baseurl }}/pdf-guides/{{ page.title | slugify }}.pdf" class="btn btn-purple" download>
-    Download This Guide as PDF
-  </a>
+<div class="vm-status-dashboard">
+  <div class="vm-status-header">
+    <h4>Download Options</h4>
+  </div>
+  <div class="vm-status-grid">
+    <div class="vm-status-item">
+      <div class="status-label">PDF Version</div>
+      <div class="status-info">
+        <a href="{{ site.baseurl }}/pdf-guides/{{ page.title | replace: ' ', '-' }}.pdf" download class="btn">
+          Download Guide as PDF
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
