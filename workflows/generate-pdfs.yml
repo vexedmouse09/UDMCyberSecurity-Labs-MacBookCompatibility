@@ -1,0 +1,36 @@
+name: Generate PDF Guides
+
+on:
+  push:
+    branches:
+      - main  
+    paths:
+      - 'docs/**/*.md'  # Only trigger when documentation files change
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: |
+          npm install puppeteer
+          
+      - name: Generate PDFs
+        run: |
+          mkdir -p pdfs
+          node generate-pdfs.js
+          
+      - name: Deploy PDFs to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./pdfs
+          destination_dir: pdf-guides
+          keep_files: true  
