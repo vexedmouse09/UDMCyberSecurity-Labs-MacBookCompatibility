@@ -3,9 +3,10 @@ name: Generate PDF Guides
 on:
   push:
     branches:
-      - main  
+      - main
     paths:
-      - 'docs/**/*.md'  # Only trigger when documentation files change
+      - 'docs/**/*.md'
+      - 'index.md'
 
 jobs:
   build:
@@ -33,4 +34,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./pdfs
           destination_dir: pdf-guides
-          keep_files: true  
+          keep_files: true
